@@ -4,7 +4,7 @@ const path = require('path');
 const p = path.join(path.dirname(
     process.mainModule.filename), 
     'data', 
-    'products.json'
+    'cart.json'
 );
 
 module.exports = class Cart {
@@ -16,9 +16,7 @@ module.exports = class Cart {
                 cart = JSON.parse(fileContent);
             }
             // Analyze the cart => Find existing product
-            const existingProductIndex = cart.products.findIndex(
-                prod => prod.id === id
-            );
+            const existingProductIndex = cart.products.findIndex(prod => prod.id === id);
             const existingProduct = cart.products[existingProductIndex];
             let updatedProduct;
             // Add new product/ increase quantity
