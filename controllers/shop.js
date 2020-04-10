@@ -9,14 +9,14 @@ exports.getMain  = (req, res, next) => {
             path: '/'
         });
     });
-}
+};
 
 exports.getCart = (req, res, next) => {
     res.render('shop/cart', {
         pageTitle: 'Cart',
         path: '/cart'
     });
-}
+};
 
 exports.postCart = (req, res, next) => {
     const prodId = req.body.productId;
@@ -24,21 +24,21 @@ exports.postCart = (req, res, next) => {
         Cart.addProduct(prodId, product.price);
     });
     res.redirect('/cart');
-} 
+};
 
 exports.getCheckout  = (req, res, next) => {
     res.render('shop/checkout', {
         pageTitle: 'Checkout',
         path: '/checkout'
     });
-}
+};
 
 exports.getOrders  = (req, res, next) => {
     res.render('shop/orders', {
         pageTitle: 'Orders',
         path: '/orders'
     });
-}
+};
 
 exports.getProducts = (req, res, next) => {
     Product.fetchAll(products => {
@@ -48,7 +48,7 @@ exports.getProducts = (req, res, next) => {
             path: '/products'
         });
     });
-}
+};
 
 exports.getProduct = (req, res, next) => {
     const prodId = req.params.productId;
@@ -59,4 +59,4 @@ exports.getProduct = (req, res, next) => {
             path: '/products'
         });
     });
-}
+};
