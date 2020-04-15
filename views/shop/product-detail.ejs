@@ -2,18 +2,21 @@
 </head>
 <body>
     <%- include('../includes/navigation.ejs') %>
-    <main class="book_shop">
+    <main>
         <h1><%= product.title %></h1>
-        <hr>
-        <div>
-            <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
-        </div>
-        <div>
-            <h2>$<%= product.price %></h2>
-            <p><%= product.description %></p>
-        </div>
-        <div>
-            <%- include('../includes/add-to-cart') %>                       
+        <div class="book_shop product_details">
+            <article>
+                <div>
+                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                </div>
+                <div>
+                    <h2>$<%= product.price %></h2>
+                    <p><%= product.description %></p>
+                </div>
+                <div class="product_action_block">
+                    <%- include('../includes/add-to-cart') %>                       
+                </div>
+            </article>
         </div>
     </main>
 <%- include('../includes/end.ejs') %>

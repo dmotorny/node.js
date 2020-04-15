@@ -15,10 +15,10 @@
                             <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
                         </div>
                         <div>
-                            <h2>$<%= product.price %></h2>
+                            <h2>$ <%= product.price %></h2>
                             <p><%= product.description %></p>
                         </div>
-                        <div>
+                        <div class="product_action_block">
                             <a href="/products/<%= product.id %>">Details</a>
                             <%- include('../includes/add-to-cart') %>
                         </div>
