@@ -1,0 +1,113 @@
+p, div, ul, li, a, h1, h2, h3, h4, h5, button {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background: #f7f7f7;
+
+    header {
+
+        nav {
+            background: orange;
+
+            ul {
+                display: flex;
+                list-style: none;
+
+                li {
+
+                    a {
+                        padding: 12px 15px;
+                        color: #000;
+                        text-decoration: none;
+                        display: inline-block;
+            
+                        &.active {
+                            background: #3269ce;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        padding: 20px 20px;
+
+        h1 {
+            font-size: 150%;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .book_shop {
+
+            article {
+                padding: 20px;
+                text-align: center;
+                width: 180px;
+                display: inline-block;
+
+                header {
+
+                    h1 {
+                        font-size: 120%;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+    
+            img {
+                width: 75px;
+            }
+        }
+
+        .product_adding {
+
+            form {
+                max-width: 300px;
+                margin: 0 auto;
+
+                .form_control {
+                    margin-bottom: 10px;
+                    display: flex;
+
+                    label {
+                        width: 100px;
+                        display: inline-block;
+                        margin-top: 6px;
+                    }
+
+                    input, textarea {
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: 100%;
+                        padding: 4px 4px;
+                        width: 170px;
+                    }
+                }
+
+                .button_block {
+                    text-align: center;
+
+                    button {
+                        padding: 7px 7px;
+                        background: rgb(10, 125, 52);
+                        color: white;
+                        font-size: 100%;
+                        border: none;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
