@@ -10,9 +10,7 @@ exports.getMain = (req, res, next) => {
                 path: '/'
             });
         })
-        .catch(err => {
-            console.log(err);
-        });
+        .catch(err => console.log(err));
 };
 
 exports.getCart = (req, res, next) => {
@@ -50,14 +48,14 @@ exports.postCartDeleteProduct = (req, res, next) => {
     });
 };
 
-exports.getCheckout  = (req, res, next) => {
+exports.getCheckout = (req, res, next) => {
     res.render('shop/checkout', {
         pageTitle: 'Checkout',
         path: '/checkout'
     });
 };
 
-exports.getOrders  = (req, res, next) => {
+exports.getOrders = (req, res, next) => {
     res.render('shop/orders', {
         pageTitle: 'Orders',
         path: '/orders'
@@ -73,9 +71,7 @@ exports.getProducts = (req, res, next) => {
                 path: '/products'
             });
         })
-        .catch(err => {
-            console.log(err);
-        });
+        .catch(err => console.log(err));
 };
 
 exports.getProduct = (req, res, next) => {
