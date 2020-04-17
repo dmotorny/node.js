@@ -3,7 +3,7 @@
 <body>
     <%- include('../includes/navigation.ejs') %>
     <main>
-        <h1>Welcom to the shop!</h1>
+        <h1>Welcom to the shop</h1>
         <% if (prods.length > 0) { %>
             <div class="book_shop">
                 <% for (product of prods) { %>
@@ -19,7 +19,7 @@
                             <p><%= product.description %></p>
                         </div>
                         <div class="product_action_block">
-                            <a href="/products/<%= product.id %>">Details</a>
+                            <a class="button orange" href="/products/<%= product.id %>">Details</a>
                             <%- include('../includes/add-to-cart') %>
                         </div>
                     </article>
