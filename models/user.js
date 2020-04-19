@@ -14,10 +14,10 @@ class User {
     save() {
         const db = getDb();
         return db
-        .collection('users')
-        .insertOne(this)
-        .then()
-        .catch(err => console.log(err));
+            .collection('users')
+            .insertOne(this)
+            .then()
+            .catch(err => console.log(err));
     }
     
     addToCart(product) {
@@ -66,6 +66,57 @@ class User {
                     }).quantity };
                 });
             })
+            .catch(err => console.log(err));
+    }
+
+    deleteItemFromCard(productId) {
+        const updatedCartItems = this.cart.items.filter(item => {
+            return item.productId.toString() !== productId.toString();
+        });
+        const db = getDb();
+        return db
+            .collection('users')
+            .updateOne(
+                { _id: new ObjectId(this._id) },
+                { $set: { cart: { items: updatedCartItems } } }
+            )
+            .then()
+            .catch(err => console.log(err));
+    }
+
+    addOrder() {
+        const db = getDb();
+        return this.getCart()
+            .then(products => {
+                const order = {
+                    items: products,
+                    user: {
+                        _id: new ObjectId(this._id),
+                        name: this.name
+                    }
+                };
+                return db
+                    .collection('orders')
+                    .insertOne(order)
+            })
+            .then(result => {
+                this.cart = { items: [] };
+                return db
+                    .collection('users')
+                    .updateOne(
+                        { _id: new ObjectId(this._id) },
+                        { $set: { cart: { items: [] } } }
+                    )
+                    .then()
+                    .catch(err => console.log(err));
+            });
+    }
+
+    getOrders() {
+        const db = getDb();
+        return db
+            .collection('orders')
+            .then()
             .catch(err => console.log(err));
     }
 
