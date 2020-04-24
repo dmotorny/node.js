@@ -6,7 +6,8 @@ exports.getAddProduct = (req, res, next) => {
         mainTitle: 'Add product',
         buttonName: 'Add product',
         path: '/admin/add-product',
-        editing: false
+        editing: false,
+        isAuthenticated: req.isLoggedIn
     });
 };
 
@@ -46,7 +47,8 @@ exports.getEditProduct = (req, res, next) => {
                 buttonName: 'Update product',
                 path: '/admin/edit-product',
                 editing: editMode,
-                product: product
+                product: product,
+                isAuthenticated: req.isLoggedIn
             });
         })
         .catch(err => console.log(err));
@@ -78,11 +80,11 @@ exports.getProducts = (req, res, next) => {
         // .select('title price -_id')
         // .populate('userId', 'name')
         .then(products => {
-            console.log(products);
             res.render('admin/products', { 
                 prods: products, 
                 pageTitle: 'Admin - Products', 
-                path: '/admin/products'
+                path: '/admin/products',
+                isAuthenticated: req.isLoggedIn
             });
         })
         .catch(err => console.log(err));
